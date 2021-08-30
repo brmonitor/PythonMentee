@@ -1,0 +1,27 @@
+<!doctype html>
+<title>Show feeds</title>
+
+{% block content %}
+{% for i in range(2) %}
+<h1>{{ names[i] }} feed</h1>
+  <table id="data">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Title</th>
+        <th>TimeStamp</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for l in lines[i] %}
+        <tr>
+          <td>{{ l[0][:-5] }}</td>
+          <td><a href="{{ l[2] }}" target="_blank">{{ l[1] }}</a></td>
+          <td>{{ l[3] }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endfor %}
+
+{% endblock %}
